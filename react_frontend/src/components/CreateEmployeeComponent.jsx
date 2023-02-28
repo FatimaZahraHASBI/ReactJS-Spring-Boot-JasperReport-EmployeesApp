@@ -118,6 +118,7 @@ class CreateEmployeeComponent extends Component {
                       onChange={this.changeSalaryHandler}
                     />
                   </div>
+                  <div style={{ marginTop: "10px" }} />
 
                   <button
                     className="btn btn-success"

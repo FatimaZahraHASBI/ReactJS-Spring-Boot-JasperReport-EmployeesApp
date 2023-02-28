@@ -18,9 +18,13 @@ class ListEmployeeComponent extends Component {
     }
 
     deleteEmployee(id){
-        EmployeeService.deleteEmployee(id).then( res => {
-            this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});
-        });
+        var result = window.confirm("Want to delete?");
+        if (result) {
+            EmployeeService.deleteEmployee(id).then( res => {
+                this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});
+            });
+        }
+        
     }
     viewEmployee(id){
         // eslint-disable-next-line
@@ -57,11 +61,11 @@ class ListEmployeeComponent extends Component {
     render() {
         return (
             <div>
-                 <h2 className="text-center">Employees List</h2>
-                 <div className = "form-group">
+                 <h2 style={{marginTop: "10px"}} className="text-center">Employees List</h2>
+                 <div style={{marginTop: "20px"}} className = "form-group">
                     <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button> 
-                    <button className="btn btn-primary" onClick={this.generatePdfReport}> Generate PDF report</button> 
-                    <button className="btn btn-primary" onClick={this.generateHtmlReport}> Generate HTML report</button> 
+                    <button className="btn btn-primary" style={{marginLeft: "10px"}} onClick={this.generatePdfReport}> Generate PDF report</button> 
+                    <button className="btn btn-primary" style={{marginLeft: "10px"}} onClick={this.generateHtmlReport}> Generate HTML report</button> 
                  </div>
                  <br></br>
                  <div className = "row">

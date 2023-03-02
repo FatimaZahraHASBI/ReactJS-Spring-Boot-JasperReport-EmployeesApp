@@ -38,7 +38,7 @@ class ListEmployeeComponent extends Component {
 
     generatePdfReport(){
         EmployeeService.generatePdfReport();
-        alert('The report employees.pdf is being uploaded to Desktop/report folder');
+        // alert('The report employees.pdf is being uploaded to Desktop/report folder');
         // window.open( "C:\\Users\\zertyui\\Desktop\\report\\employees.pdf", '_blank');
     }
 
@@ -65,7 +65,7 @@ class ListEmployeeComponent extends Component {
                  <div style={{marginTop: "20px"}} className = "form-group">
                     <button className="btn btn-primary" onClick={this.addEmployee}> Add Employee</button> 
                     <button className="btn btn-primary" style={{marginLeft: "10px"}} onClick={this.generatePdfReport}> Generate PDF report</button> 
-                    <button className="btn btn-primary" style={{marginLeft: "10px"}} onClick={this.generateHtmlReport}> Generate HTML report</button> 
+                    {/* <button className="btn btn-primary" style={{marginLeft: "10px"}} onClick={this.generateHtmlReport}> Generate HTML report</button>  */}
                  </div>
                  <br></br>
                  <div className = "row">

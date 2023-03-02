@@ -25,12 +25,13 @@ class EmployeeService {
     }
 
     generatePdfReport(){
-        return axios.get("http://localhost:8080/report/pdf")
+        // return axios.get("http://localhost:8080/report", {responseType: 'blob'})
+        window.location.href = 'http://localhost:8080/report'
     }
 
-    generateHtmlReport(){
-        return axios.get("http://localhost:8080/report/html")
-    }
+    // generateHtmlReport(){
+    //     return axios.get("http://localhost:8080/report/html")
+    // }
 }
 
 export default new EmployeeService()

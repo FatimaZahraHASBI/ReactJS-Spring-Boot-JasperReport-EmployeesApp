@@ -3,6 +3,7 @@ package com.hasbi.backend_spring.web;
 import com.hasbi.backend_spring.entities.Employee;
 import com.hasbi.backend_spring.repositories.EmployeeRepository;
 import com.hasbi.backend_spring.service.ReportService;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,9 +59,14 @@ public class EmployeeController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/report/{format}")
-    public String generateReport(@PathVariable String format) throws JRException, FileNotFoundException {
-        return service.exportReport(format);
+    @GetMapping("/report")
+    public String generateReport(HttpServletResponse response) throws JRException, IOException {
+        return service.exportReport(response);
     }
+
+//    @GetMapping("/report/{format}")
+//    public String generateReport(@PathVariable String format) throws JRException, FileNotFoundException {
+//        return service.exportReport(format);
+//    }
 
 }
